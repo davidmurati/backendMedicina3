@@ -74,7 +74,7 @@ def index():
 #-------------para que se corra en segundo plano
 
 chrome_options = Options() 
-#chrome_options.add_argument("--headless") ##esta es la que hay que poner para el segundo plano
+chrome_options.add_argument("--headless") ##esta es la que hay que poner para el segundo plano
 
 
 
