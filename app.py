@@ -48,12 +48,13 @@ def run_automation():
 
     if request.method == 'POST':
          # search_key es lo capturado por el textbox
-        data = request.get_json()
+        data = request.form['texto']
 
-        if 'consulta' in data:  # Assuming 'consulta' is the key for captured text
-            search_key = data['consulta'] 
+       # if 'consulta' in data:  # Assuming 'consulta' is the key for captured text
+        #    search_key = data['consulta'] 
 
-        
+        search_key = data #borrar
+
         title = obtener_resultado(search_key)
         
         data = supabase.table('backendpythonmed').insert({"Respuesta": title}).execute()
@@ -68,7 +69,9 @@ def run_automation():
 
 @app.route('/')
 def index():
-    return '<h1> Hola soy el backend med </h1>'
+    
+    return render_template('index.html')
+    #return '<h1> Hola soy el backend med </h1>'
 
 
 #-------------para que se corra en segundo plano
